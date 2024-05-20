@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Register: React.FC<Props> = ({ userId }) => {
-  const [id, setId] = useState(userId || '');
+  const [id] = useState(userId || '');
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
 
@@ -22,7 +22,7 @@ const Register: React.FC<Props> = ({ userId }) => {
 
   return (
     <div className='bg-bg w-full h-screen flex items-center justify-center'>
-      <div className='bg-white shadow-2xl rounded-2xl w-[438px] h-[534px] flex flex-col items-center justify-center gap-10'>
+      <div className='bg-white shadow-2xl rounded-2xl w-[438px] h-[534px] flex flex-col items-center justify-center gap-5'>
         <img 
             alt="logo"
             src={Logo}
@@ -36,6 +36,10 @@ const Register: React.FC<Props> = ({ userId }) => {
           <label className='text-black font-semibold flex flex-col'>
             Email:
             <input className="bg-gray-200 rounded-lg pl-4 w-[385px] h-[55px]" placeholder='Digite seu e-mail' type="email" value={email} onChange={e => setEmail(e.target.value)} />
+          </label>
+          <label className='text-black font-semibold flex flex-col'>
+            Senha:
+            <input className="bg-gray-200 rounded-lg pl-4 w-[385px] h-[55px]" placeholder='Digite sua senha' type="email" value={email} onChange={e => setEmail(e.target.value)} />
           </label>
         </form>
         <a href='/' className='text-black hover:text-yellow-500'>Já tem uma conta? Acesse agora!</a>

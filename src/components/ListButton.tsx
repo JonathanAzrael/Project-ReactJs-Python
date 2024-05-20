@@ -13,7 +13,7 @@ const ListUsersButton: React.FC = () => {
   };
 
   return (
-    <button onClick={handleClick} className='w-[200px] h-[80px] bg-green-300'>Carregar Usuários</button>
+    <button onClick={handleClick} className='h-[54px] w-[385px] bg-blue-950 rounded-lg hover:bg-yellow-500 text-white'>Carregar Usuários</button>
   );
 };
 

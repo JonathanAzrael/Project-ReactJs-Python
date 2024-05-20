@@ -12,20 +12,14 @@ interface User {
   role: string;
 }
 
-interface Tokens {
-  refresh: string;
-  access: string;
-}
-
 interface UserInfoProps {
   user: User;
-  tokens: Tokens;
 }
 
-const UserInfo: React.FC<UserInfoProps> = ({ user, tokens }) => {
+const UserInfo: React.FC<UserInfoProps> = ({ user }) => {
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">User Information</h1>
+      <h1 className="text-2xl font-medium mb-4">User Information</h1>
       <div className="bg-white shadow-lg rounded-lg p-6 mb-4">
         <h2 className="text-xl font-semibold">User</h2>
         <p><strong>ID:</strong> {user.id}</p>
@@ -36,11 +30,6 @@ const UserInfo: React.FC<UserInfoProps> = ({ user, tokens }) => {
         <p><strong>Created:</strong> {new Date(user.created).toLocaleString()}</p>
         <p><strong>Modified:</strong> {new Date(user.modified).toLocaleString()}</p>
         <p><strong>Role:</strong> {user.role}</p>
-      </div>
-      <div className="bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-xl font-semibold">Tokens</h2>
-        <p><strong>Refresh Token:</strong> {tokens.refresh}</p>
-        <p><strong>Access Token:</strong> {tokens.access}</p>
       </div>
     </div>
   );
