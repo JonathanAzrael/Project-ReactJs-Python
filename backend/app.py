@@ -1,8 +1,82 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
+CORS(app)
 
 usuarios = {}
+
+@app.route('/register', methods=['POST'])
+def register():
+    data = request.json
+    username = data.get('username')
+    password = data.get('password')
+
+    if username in usuarios:
+        return jsonify({"message": "Username already exists"}), 409
+
+    # Salva o usuário com a senha hasheada
+    usuarios[username] = {
+        "password": generate_password_hash(password)
+    }
+
+    return jsonify({"message": "User created successfully"}), 201
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.json
+    username = data.get('username')
+    password = data.get('password')
+
+    user = usuarios.get(username)
+
+    # Verifica se o usuário existe e se a senha está correta
+    if user and check_password_hash(user['password'], password):
+        return jsonify({"message": "Login successful", "user": username}), 200
+    else:
+        return jsonify({"message": "Invalid credentials"}), 401
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})  # Ajuste conforme necessário
+
+usuarios = {}
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.json
+    username = data.get('username')
+    password = data.get('password')
+
+    user = usuarios.get(username)
+
+    if user and check_password_hash(user['password'], password):
+        return jsonify({"message": "Login successful", "user": username}), 200
+    else:
+        return jsonify({"message": "Invalid credentials"}), 401
+
+@app.route('/register', methods=['POST'])
+def register():
+    data = request.json
+    username = data.get('username')
+    password = data.get('password')
+
+    if username in usuarios:
+        return jsonify({"message": "Username already exists"}), 409
+
+    usuarios[username] = {
+        "password": generate_password_hash(password)
+    }
+
+    return jsonify({"message": "User created successfully"}), 201
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 
 @app.route('/usuarios', methods=['POST'])
 def criar_usuario():

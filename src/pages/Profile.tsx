@@ -1,9 +1,11 @@
+import SideBar from "components/Sidebar"
 import HeaderBar from "../components/header"
 
 const ProfilePage = () => {
   return(
     <section>
       <HeaderBar />
+      <SideBar />
       <div className="bg-bg2 w-full h-screen flex items-center justify-center">
         <div className="bg-bg flex flex-col w-[356px] items-center justify-between p-8 h-[315px]">
           <div className="flex flex-col items-center gap-2">

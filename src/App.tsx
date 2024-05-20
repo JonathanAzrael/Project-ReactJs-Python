@@ -1,14 +1,14 @@
-import React from 'react';
-
+import UserForm from 'components/Userform';
 import './App.css';
 import AppRoutes from './AppRoutes';
-import HomePage from './pages/HomePage';
-import PeoplePage from './pages/Profile';
 
 function App() {
   return (
     <>
-      <AppRoutes />
+
+      {/* Renderização apenas do App Routes, para haver o controle de rotas */}
+      {/* <AppRoutes /> */}
+      <UserForm />
     </>
   );
 }

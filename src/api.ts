@@ -5,6 +5,9 @@ const API = axios.create({
   baseURL: 'http://127.0.0.1:5000',
 });
 
+
+
+// API sendo consumido via AXIOS
 export const criarUsuario = async (id: string, nome: string, email: string): Promise<ApiResponse> => {
   const response = await API.post<ApiResponse>(`/usuarios`, { id, nome, email });
   return response.data;

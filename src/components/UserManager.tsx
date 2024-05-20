@@ -35,9 +35,9 @@ const UserManagement: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Gerenciamento de Usuários</h1>
-      <div>
+    <div className='flex flex-col gap-4'>
+      <h1 className=" font-bold text-lg">Gerenciamento de Usuários</h1>
+      {/* <div>
         <input
           type="text"
           placeholder="ID"
@@ -57,14 +57,19 @@ const UserManagement: React.FC = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <button onClick={handleCriarUsuario}>Criar Usuário</button>
-      </div>
-      <h2>Lista de Usuários</h2>
+      </div> */}
       <ul>
         {Object.keys(usuarios).map((key) => (
           <li key={key}>
-            ID: {usuarios[key].id}, Nome: {usuarios[key].nome}, Email: {usuarios[key].email}
-            <button onClick={() => handleAtualizarUsuario(key)}>Atualizar</button>
-            <button onClick={() => handleExcluirUsuario(key)}>Excluir</button>
+            <div className='flex flex-col gap-4 font-bold'>
+              ID: {usuarios[key].id}, 
+              Nome: {usuarios[key].nome}, 
+              Email: {usuarios[key].email}
+            </div>
+            <div className='flex gap-4 items-center justify-between'>
+              <button onClick={() => handleAtualizarUsuario(key)} className='w-[100px] h-[30px] bg-blue-950 rounded-lg text-white'>Atualizar</button>
+              <button onClick={() => handleExcluirUsuario(key)} className='w-[100px] h-[30px] bg-blue-950 rounded-lg text-white'>Excluir</button>
+            </div>
           </li>
         ))}
       </ul>
