@@ -39,7 +39,9 @@ const Register: React.FC<Props> = ({ userId }) => {
           </label>
         </form>
         <a href='/' className='text-black hover:text-yellow-500'>Já tem uma conta? Acesse agora!</a>
-        <button className="h-[54px] w-[385px] bg-blue-950 rounded-lg hover:bg-yellow-500 text-white" type="submit">{userId ? 'Atualizar' : 'Criar'}</button>
+        <a href='/'>
+          <button className="h-[54px] w-[385px] bg-blue-950 rounded-lg hover:bg-yellow-500 text-white" type="submit">{userId ? 'Atualizar' : 'Criar'}</button>
+        </a>
       </div>
     </div>
   );
