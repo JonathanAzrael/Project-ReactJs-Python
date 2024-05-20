@@ -1,6 +1,6 @@
 // HomePage.tsx
 import React, { useState } from 'react';
-import { login } from ''; // Supondo que você tenha uma função API para login
+// import { login } from ''; // Supondo que você tenha uma função API para login
 
 const HomePage: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -9,8 +9,8 @@ const HomePage: React.FC = () => {
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      const response = await login(username, password);
-      console.log('Login success:', response);
+      // const response = await login(username, password);
+      // console.log('Login success:', response);
       // Adicione a lógica para redirecionar o usuário ou mostrar informações
     } catch (error) {
       console.error('Login failed:', error);
