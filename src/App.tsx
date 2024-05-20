@@ -7,8 +7,8 @@ function App() {
     <>
 
       {/* Renderização apenas do App Routes, para haver o controle de rotas */}
-      {/* <AppRoutes /> */}
-      <UserForm />
+      <AppRoutes />
+      {/* <UserForm /> */}
     </>
   );
 }

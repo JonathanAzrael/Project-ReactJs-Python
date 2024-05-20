@@ -1,3 +1,4 @@
+
 usuarios = {}
 
 def criar_usuario(id, nome, email):

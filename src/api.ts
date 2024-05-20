@@ -5,9 +5,16 @@ const API = axios.create({
   baseURL: 'http://127.0.0.1:5000',
 });
 
-
-
 // API sendo consumido via AXIOS
+
+export const registerUser = async (username: string, password: string) => {
+  return API.post('/register', { username, password });
+};
+
+export const loginUser = async (username: string, password: string) => {
+  return API.post('/login', { username, password });
+};
+
 export const criarUsuario = async (id: string, nome: string, email: string): Promise<ApiResponse> => {
   const response = await API.post<ApiResponse>(`/usuarios`, { id, nome, email });
   return response.data;
